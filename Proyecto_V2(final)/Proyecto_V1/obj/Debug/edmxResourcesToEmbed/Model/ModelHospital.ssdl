@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="agenda">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+    </Key>
+    <Property Name="id_agenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hora_entrada" Type="time" Precision="7" />
+    <Property Name="hora_salida" Type="time" Precision="7" />
+    <Property Name="dia" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="profesional" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Historia_Clinica">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="id_paciente" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="id_paciente" Type="int" Nullable="false" />
+    <Property Name="motivo_consulta" Type="varchar" MaxLength="240" Nullable="false" />
+    <Property Name="diagnostico" Type="varchar" MaxLength="240" Nullable="false" />
+    <Property Name="tratamiento" Type="varchar" MaxLength="240" Nullable="false" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="id_profesional" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Obra_Social">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="porc_cobertura" Type="int" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="id_obra_soc" Type="int" Nullable="false" />
+    <Property Name="id_genero" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="dni" Type="bigint" Nullable="false" />
+    <Property Name="localidad" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="provincia" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="telefono" Type="bigint" Nullable="false" />
+    <Property Name="fecha_alta" Type="datetime" Nullable="false" />
+    <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="bigint" Nullable="false" />
+    <Property Name="cod_tipo_personal" Type="int" Nullable="false" />
+    <Property Name="id_obra_soc" Type="int" Nullable="false" />
+    <Property Name="id_genero" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fecha_nac" Type="datetime" Nullable="false" />
+    <Property Name="fecha_ingreso" Type="datetime" Nullable="false" />
+    <Property Name="localidad" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="provincia" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="domicilio" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="num_tel" Type="bigint" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="60" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Personal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="turnos">
+    <Key>
+      <PropertyRef Name="nro_turno" />
+    </Key>
+    <Property Name="nro_turno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="hora" Type="datetime" Nullable="false" />
+    <Property Name="paciente" Type="int" Nullable="false" />
+    <Property Name="profesional" Type="bigint" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+    <Property Name="monto" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="monto_final" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="dni" />
+      <PropertyRef Name="id_tipo_usuario" />
+    </Key>
+    <Property Name="dni" Type="bigint" Nullable="false" />
+    <Property Name="id_tipo_usuario" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="deBaja" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__agenda__profesio__787EE5A0">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="agenda">
+        <PropertyRef Name="profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__turnos__profesio__797309D9">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="turnos" Type="Self.turnos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="turnos">
+        <PropertyRef Name="profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cod_tipo_personal">
+    <End Role="Tipo_Personal" Type="Self.Tipo_Personal" Multiplicity="1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Personal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="cod_tipo_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_genero">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_genero_personal">
+    <End Role="Genero" Type="Self.Genero" Multiplicity="1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_obra">
+    <End Role="Obra_Social" Type="Self.Obra_Social" Multiplicity="1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obra_Social">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_obra_soc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_obra_soc">
+    <End Role="Obra_Social" Type="Self.Obra_Social" Multiplicity="1" />
+    <End Role="Personal" Type="Self.Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obra_Social">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_obra_soc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Paciente">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="1" />
+    <End Role="Historia_Clinica" Type="Self.Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Personal">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="dni" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Profesional">
+    <End Role="Personal" Type="Self.Personal" Multiplicity="1" />
+    <End Role="Historia_Clinica" Type="Self.Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="id_profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_turno_paciente">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="1" />
+    <End Role="turnos" Type="Self.turnos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="turnos">
+        <PropertyRef Name="paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario_tipo">
+    <End Role="Tipo_Usuario" Type="Self.Tipo_Usuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_tipo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalModelStoreContainer">
+    <EntitySet Name="agenda" EntityType="Self.agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genero" EntityType="Self.Genero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historia_Clinica" EntityType="Self.Historia_Clinica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Obra_Social" EntityType="Self.Obra_Social" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Personal" EntityType="Self.Tipo_Personal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Usuario" EntityType="Self.Tipo_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="turnos" EntityType="Self.turnos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__agenda__profesio__787EE5A0" Association="Self.FK__agenda__profesio__787EE5A0">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="agenda" EntitySet="agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__turnos__profesio__797309D9" Association="Self.FK__turnos__profesio__797309D9">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="turnos" EntitySet="turnos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cod_tipo_personal" Association="Self.fk_cod_tipo_personal">
+      <End Role="Tipo_Personal" EntitySet="Tipo_Personal" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_genero" Association="Self.fk_genero">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_genero_personal" Association="Self.fk_genero_personal">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_obra" Association="Self.fk_obra">
+      <End Role="Obra_Social" EntitySet="Obra_Social" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_obra_soc" Association="Self.fk_obra_soc">
+      <End Role="Obra_Social" EntitySet="Obra_Social" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Paciente" Association="Self.fk_Paciente">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Personal" Association="Self.fk_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Profesional" Association="Self.fk_Profesional">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+    <AssociationSet Name="fk_turno_paciente" Association="Self.fk_turno_paciente">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="turnos" EntitySet="turnos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario_tipo" Association="Self.fk_usuario_tipo">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

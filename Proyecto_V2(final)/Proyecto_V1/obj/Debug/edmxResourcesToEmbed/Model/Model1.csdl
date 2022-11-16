@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Historia_Clinica">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_paciente" Type="Int32" />
+    <Property Name="motivo_consulta" Type="String" MaxLength="240" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="diagnostico" Type="String" MaxLength="240" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tratamiento" Type="String" MaxLength="240" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Paciente__id_his__2C3393D0" FromRole="Historia_Clinica" ToRole="Paciente" />
+    <NavigationProperty Name="Paciente1" Relationship="Self.fk_Paciente" FromRole="Historia_Clinica" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Obra_Social">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_obra_soc" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="porc_cobertura" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="Self.FK__Paciente__id_obr__2D27B809" FromRole="Obra_Social" ToRole="Paciente" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dni" Type="Int64" Nullable="false" />
+    <Property Name="localidad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="provincia" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefono" Type="Int64" Nullable="false" />
+    <Property Name="id_hist_clin" Type="Int32" />
+    <Property Name="fecha_alta" Type="DateTime" Precision="3" />
+    <Property Name="id_obra_soc" Type="Int32" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Historia_Clinica" Relationship="Self.FK__Paciente__id_his__2C3393D0" FromRole="Paciente" ToRole="Historia_Clinica" />
+    <NavigationProperty Name="Historia_Clinica1" Relationship="Self.fk_Paciente" FromRole="Paciente" ToRole="Historia_Clinica" />
+    <NavigationProperty Name="Obra_Social" Relationship="Self.FK__Paciente__id_obr__2D27B809" FromRole="Paciente" ToRole="Obra_Social" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__Paciente__id_his__2C3393D0">
+    <End Role="Historia_Clinica" Type="Self.Historia_Clinica" Multiplicity="0..1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Historia_Clinica">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_hist_clin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Paciente">
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="0..1" />
+    <End Role="Historia_Clinica" Type="Self.Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paciente__id_obr__2D27B809">
+    <End Role="Obra_Social" Type="Self.Obra_Social" Multiplicity="0..1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obra_Social">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_obra_soc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Historia_Clinica" EntityType="Self.Historia_Clinica" />
+    <EntitySet Name="Obra_Social" EntityType="Self.Obra_Social" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK__Paciente__id_his__2C3393D0" Association="Self.FK__Paciente__id_his__2C3393D0">
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Paciente" Association="Self.fk_Paciente">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paciente__id_obr__2D27B809" Association="Self.FK__Paciente__id_obr__2D27B809">
+      <End Role="Obra_Social" EntitySet="Obra_Social" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HospitalEntities4" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="pa_All_Pacientes" ReturnType="Collection(HospitalModel.pa_All_Pacientes_Result)" />
+    <EntitySet Name="Genero" EntityType="HospitalModel.Genero" />
+    <EntitySet Name="Obra_Social" EntityType="HospitalModel.Obra_Social" />
+    <EntitySet Name="Paciente" EntityType="HospitalModel.Paciente" />
+    <EntitySet Name="Personal" EntityType="HospitalModel.Personal" />
+    <EntitySet Name="Tipo_Personal" EntityType="HospitalModel.Tipo_Personal" />
+    <EntitySet Name="Tipo_Usuario" EntityType="HospitalModel.Tipo_Usuario" />
+    <EntitySet Name="Usuario" EntityType="HospitalModel.Usuario" />
+    <AssociationSet Name="fk_genero" Association="HospitalModel.fk_genero">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_genero_personal" Association="HospitalModel.fk_genero_personal">
+      <End Role="Genero" EntitySet="Genero" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_obra" Association="HospitalModel.fk_obra">
+      <End Role="Obra_Social" EntitySet="Obra_Social" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="fk_obra_soc" Association="HospitalModel.fk_obra_soc">
+      <End Role="Obra_Social" EntitySet="Obra_Social" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cod_tipo_personal" Association="HospitalModel.fk_cod_tipo_personal">
+      <End Role="Tipo_Personal" EntitySet="Tipo_Personal" />
+      <End Role="Personal" EntitySet="Personal" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Personal" Association="HospitalModel.fk_Personal">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuario_tipo" Association="HospitalModel.fk_usuario_tipo">
+      <End Role="Tipo_Usuario" EntitySet="Tipo_Usuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <EntitySet Name="agenda" EntityType="HospitalModel.agenda" />
+    <EntitySet Name="turnos" EntityType="HospitalModel.turnos" />
+    <AssociationSet Name="FK__agenda__profesio__787EE5A0" Association="HospitalModel.FK__agenda__profesio__787EE5A0">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="agenda" EntitySet="agenda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_turno_paciente" Association="HospitalModel.fk_turno_paciente">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="turnos" EntitySet="turnos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__turnos__profesio__797309D9" Association="HospitalModel.FK__turnos__profesio__797309D9">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="turnos" EntitySet="turnos" />
+    </AssociationSet>
+    <EntitySet Name="Historia_Clinica" EntityType="HospitalModel.Historia_Clinica" />
+    <AssociationSet Name="fk_Paciente" Association="HospitalModel.fk_Paciente">
+      <End Role="Paciente" EntitySet="Paciente" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Profesional" Association="HospitalModel.fk_Profesional">
+      <End Role="Personal" EntitySet="Personal" />
+      <End Role="Historia_Clinica" EntitySet="Historia_Clinica" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="pa_All_Pacientes_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="40" />
+    <Property Type="Int64" Name="dni" Nullable="false" />
+    <Property Type="String" Name="localidad" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="provincia" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="40" />
+    <Property Type="Int64" Name="telefono" Nullable="false" />
+    <Property Type="Int32" Name="id_hist_clin" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_alta" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="id_obra_soc" Nullable="true" />
+    <Property Type="DateTime" Name="fecha_nac" Nullable="false" Precision="23" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="40" />
+  </ComplexType>
+  <EntityType Name="Genero">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="HospitalModel.fk_genero" FromRole="Genero" ToRole="Paciente" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.fk_genero_personal" FromRole="Genero" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Obra_Social">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="porc_cobertura" Type="Int32" Nullable="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="HospitalModel.fk_obra" FromRole="Obra_Social" ToRole="Paciente" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.fk_obra_soc" FromRole="Obra_Social" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="id_obra_soc" Type="Int32" Nullable="false" />
+    <Property Name="id_genero" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="dni" Type="Int64" Nullable="false" />
+    <Property Name="localidad" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="provincia" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Int64" Nullable="false" />
+    <Property Name="fecha_alta" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Genero" Relationship="HospitalModel.fk_genero" FromRole="Paciente" ToRole="Genero" />
+    <NavigationProperty Name="Obra_Social" Relationship="HospitalModel.fk_obra" FromRole="Paciente" ToRole="Obra_Social" />
+    <NavigationProperty Name="turnos" Relationship="HospitalModel.fk_turno_paciente" FromRole="Paciente" ToRole="turnos" />
+    <NavigationProperty Name="Historia_Clinica" Relationship="HospitalModel.fk_Paciente" FromRole="Paciente" ToRole="Historia_Clinica" />
+  </EntityType>
+  <EntityType Name="Personal">
+    <Key>
+      <PropertyRef Name="dni" />
+    </Key>
+    <Property Name="dni" Type="Int64" Nullable="false" />
+    <Property Name="cod_tipo_personal" Type="Int32" Nullable="false" />
+    <Property Name="id_obra_soc" Type="Int32" Nullable="false" />
+    <Property Name="id_genero" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_nac" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_ingreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="localidad" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="provincia" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="domicilio" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="num_tel" Type="Int64" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Genero" Relationship="HospitalModel.fk_genero_personal" FromRole="Personal" ToRole="Genero" />
+    <NavigationProperty Name="Obra_Social" Relationship="HospitalModel.fk_obra_soc" FromRole="Personal" ToRole="Obra_Social" />
+    <NavigationProperty Name="Tipo_Personal" Relationship="HospitalModel.fk_cod_tipo_personal" FromRole="Personal" ToRole="Tipo_Personal" />
+    <NavigationProperty Name="Usuario" Relationship="HospitalModel.fk_Personal" FromRole="Personal" ToRole="Usuario" />
+    <NavigationProperty Name="agenda" Relationship="HospitalModel.FK__agenda__profesio__787EE5A0" FromRole="Personal" ToRole="agenda" />
+    <NavigationProperty Name="turnos" Relationship="HospitalModel.FK__turnos__profesio__797309D9" FromRole="Personal" ToRole="turnos" />
+    <NavigationProperty Name="Historia_Clinica" Relationship="HospitalModel.fk_Profesional" FromRole="Personal" ToRole="Historia_Clinica" />
+  </EntityType>
+  <EntityType Name="Tipo_Personal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.fk_cod_tipo_personal" FromRole="Tipo_Personal" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="Tipo_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="HospitalModel.fk_usuario_tipo" FromRole="Tipo_Usuario" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="dni" />
+      <PropertyRef Name="id_tipo_usuario" />
+    </Key>
+    <Property Name="dni" Type="Int64" Nullable="false" />
+    <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.fk_Personal" FromRole="Usuario" ToRole="Personal" />
+    <NavigationProperty Name="Tipo_Usuario" Relationship="HospitalModel.fk_usuario_tipo" FromRole="Usuario" ToRole="Tipo_Usuario" />
+  </EntityType>
+  <Association Name="fk_genero">
+    <End Type="HospitalModel.Genero" Role="Genero" Multiplicity="1" />
+    <End Type="HospitalModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_genero_personal">
+    <End Type="HospitalModel.Genero" Role="Genero" Multiplicity="1" />
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genero">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_genero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_obra">
+    <End Type="HospitalModel.Obra_Social" Role="Obra_Social" Multiplicity="1" />
+    <End Type="HospitalModel.Paciente" Role="Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obra_Social">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="id_obra_soc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_obra_soc">
+    <End Type="HospitalModel.Obra_Social" Role="Obra_Social" Multiplicity="1" />
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Obra_Social">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="id_obra_soc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cod_tipo_personal">
+    <End Type="HospitalModel.Tipo_Personal" Role="Tipo_Personal" Multiplicity="1" />
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Personal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Personal">
+        <PropertyRef Name="cod_tipo_personal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Personal">
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="1" />
+    <End Type="HospitalModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="dni" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuario_tipo">
+    <End Type="HospitalModel.Tipo_Usuario" Role="Tipo_Usuario" Multiplicity="1" />
+    <End Type="HospitalModel.Usuario" Role="Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Usuario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_tipo_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="agenda">
+    <Key>
+      <PropertyRef Name="id_agenda" />
+    </Key>
+    <Property Name="id_agenda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hora_entrada" Type="Time" Precision="7" />
+    <Property Name="hora_salida" Type="Time" Precision="7" />
+    <Property Name="dia" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="profesional" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.FK__agenda__profesio__787EE5A0" FromRole="agenda" ToRole="Personal" />
+  </EntityType>
+  <EntityType Name="turnos">
+    <Key>
+      <PropertyRef Name="nro_turno" />
+    </Key>
+    <Property Name="nro_turno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="paciente" Type="Int32" Nullable="false" />
+    <Property Name="profesional" Type="Int64" Nullable="false" />
+    <Property Name="deBaja" Type="Boolean" Nullable="false" />
+    <Property Name="monto" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="monto_final" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Paciente1" Relationship="HospitalModel.fk_turno_paciente" FromRole="turnos" ToRole="Paciente" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.FK__turnos__profesio__797309D9" FromRole="turnos" ToRole="Personal" />
+  </EntityType>
+  <Association Name="FK__agenda__profesio__787EE5A0">
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="1" />
+    <End Type="HospitalModel.agenda" Role="agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="agenda">
+        <PropertyRef Name="profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_turno_paciente">
+    <End Type="HospitalModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="HospitalModel.turnos" Role="turnos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="turnos">
+        <PropertyRef Name="paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__turnos__profesio__797309D9">
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="1" />
+    <End Type="HospitalModel.turnos" Role="turnos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="turnos">
+        <PropertyRef Name="profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Historia_Clinica">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="id_paciente" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="id_paciente" Type="Int32" Nullable="false" />
+    <Property Name="motivo_consulta" Type="String" Nullable="false" MaxLength="240" FixedLength="false" Unicode="false" />
+    <Property Name="diagnostico" Type="String" Nullable="false" MaxLength="240" FixedLength="false" Unicode="false" />
+    <Property Name="tratamiento" Type="String" Nullable="false" MaxLength="240" FixedLength="false" Unicode="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="id_profesional" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Paciente" Relationship="HospitalModel.fk_Paciente" FromRole="Historia_Clinica" ToRole="Paciente" />
+    <NavigationProperty Name="Personal" Relationship="HospitalModel.fk_Profesional" FromRole="Historia_Clinica" ToRole="Personal" />
+  </EntityType>
+  <Association Name="fk_Paciente">
+    <End Type="HospitalModel.Paciente" Role="Paciente" Multiplicity="1" />
+    <End Type="HospitalModel.Historia_Clinica" Role="Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paciente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="id_paciente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Profesional">
+    <End Type="HospitalModel.Personal" Role="Personal" Multiplicity="1" />
+    <End Type="HospitalModel.Historia_Clinica" Role="Historia_Clinica" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personal">
+        <PropertyRef Name="dni" />
+      </Principal>
+      <Dependent Role="Historia_Clinica">
+        <PropertyRef Name="id_profesional" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

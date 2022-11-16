@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF849EF6-93D4-4B75-BC7D-EB3C58C77130}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Proyecto_V1.My.MyApplication</StartupObject>
+    <RootNamespace>Proyecto_V1</RootNamespace>
+    <AssemblyName>Proyecto_V1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Proyecto_V1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Proyecto_V1.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Pdf, Version=17.0.0.1224, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
+      <HintPath>..\packages\GemBox.Pdf.17.0.1224\lib\net35\GemBox.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Pkcs11Interop, Version=5.1.1.0, Culture=neutral, PublicKeyToken=c10e9c2d8c006d2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pkcs11Interop.5.1.1\lib\net45\Pkcs11Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\ClaseDatos.vb" />
+    <Compile Include="Model\agenda.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Historia_Clinica.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\turnos.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\BackUp.Designer.vb">
+      <DependentUpon>BackUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\BackUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\Restore.Designer.vb">
+      <DependentUpon>Restore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\Restore.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\RestoreWarning.Designer.vb">
+      <DependentUpon>RestoreWarning.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Base de Datos\RestoreWarning.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\CRObraSocialPaciente.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRObraSocialPaciente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\CRTUbaja.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRTUbaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\ShowUserInactivo.Designer.vb">
+      <DependentUpon>ShowUserInactivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\ShowUserInactivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\WinRepTU\HospitalDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Genero.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelHospital.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHospital.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelHospital.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHospital.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelHospital.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Obra_Social.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Paciente.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\pa_All_Pacientes_Result.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Personal.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tipo_Personal.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Tipo_Usuario.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Usuario.vb">
+      <DependentUpon>ModelHospital.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\AgregarGenero.Designer.vb">
+      <DependentUpon>AgregarGenero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\AgregarGenero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\EditGenero.Designer.vb">
+      <DependentUpon>EditGenero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\EditGenero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\AgregarObraSocial.Designer.vb">
+      <DependentUpon>AgregarObraSocial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\AgregarObraSocial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\CRObraSocialPersonal.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRObraSocialPersonal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\EditObraSocial.Designer.vb">
+      <DependentUpon>EditObraSocial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\EditObraSocial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\ShowROSpaciente.Designer.vb">
+      <DependentUpon>ShowROSpaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\ShowROSpaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\ShowROSpersonal.Designer.vb">
+      <DependentUpon>ShowROSpersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\ShowROSpersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\AgregarTipoPersonal.Designer.vb">
+      <DependentUpon>AgregarTipoPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\AgregarTipoPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\EditTipoPersonal.Designer.vb">
+      <DependentUpon>EditTipoPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\EditTipoPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\AgregarUsuario.Designer.vb">
+      <DependentUpon>AgregarUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\AgregarUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\CrystalReportTUsuarios.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportTUsuarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\EditUsuario.Designer.vb">
+      <DependentUpon>EditUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\EditUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\WinRepTU\ShowRTiposUsuarios.Designer.vb">
+      <DependentUpon>ShowRTiposUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\WinRepTU\ShowRTiposUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\ShowRTU.Designer.vb">
+      <DependentUpon>ShowRTU.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\CrystalTU\ShowRTU.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\TablaUsuario.Designer.vb">
+      <DependentUpon>TablaUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Usuario\TablaUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\EditProfesionales.Designer.vb">
+      <DependentUpon>EditProfesionales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\EditProfesionales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\EntradaProfesionale.designer.vb">
+      <DependentUpon>EntradaProfesionale.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\EntradaProfesionale.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormEditPacientes.Designer.vb">
+      <DependentUpon>FormEditPacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormEditPacientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormMantPacientes.designer.vb">
+      <DependentUpon>FormMantPacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormMantPacientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormPacientes.designer.vb">
+      <DependentUpon>FormPacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Paciente\FormPacientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\FormOS.Designer.vb">
+      <DependentUpon>FormOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ObraSocial\FormOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\FormPrincipalAdmin.Designer.vb">
+      <DependentUpon>FormPrincipalAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\FormPrincipalAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\TablaGenero.Designer.vb">
+      <DependentUpon>TablaGenero.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Genero\TablaGenero.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\TipoPersonal.Designer.vb">
+      <DependentUpon>TipoPersonal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TipoPersonal\TipoPersonal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LogginForm.designer.vb">
+      <DependentUpon>LogginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TablaProfesionales.designer.vb">
+      <DependentUpon>TablaProfesionales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Personal\TablaProfesionales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormAgenda.designer.vb">
+      <DependentUpon>FormAgenda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormAgenda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormAgendaMedica.designer.vb">
+      <DependentUpon>FormAgendaMedica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormAgendaMedica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormEditAgenda.Designer.vb">
+      <DependentUpon>FormEditAgenda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\Agenda\FormEditAgenda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\FormPrincipalMedico.designer.vb">
+      <DependentUpon>FormPrincipalMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\FormPrincipalMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\EntradaHC.Designer.vb">
+      <DependentUpon>EntradaHC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\EntradaHC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\ModifHC.Designer.vb">
+      <DependentUpon>ModifHC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\ModifHC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\Pacientes\FormPacientesMedico.designer.vb">
+      <DependentUpon>FormPacientesMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\Pacientes\FormPacientesMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\Turnos\TablaTurnoMedico.designer.vb">
+      <DependentUpon>TablaTurnoMedico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\Turnos\TablaTurnoMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\HistoriaClinica.Designer.vb">
+      <DependentUpon>HistoriaClinica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medico\HistClinica\HistoriaClinica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Agenda\FormAgendaSecre.designer.vb">
+      <DependentUpon>FormAgendaSecre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Agenda\FormAgendaSecre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\FormPrincipalSecre.designer.vb">
+      <DependentUpon>FormPrincipalSecre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\FormPrincipalSecre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Medicos\FormProfesionalesSecre.designer.vb">
+      <DependentUpon>FormProfesionalesSecre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Medicos\FormProfesionalesSecre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Pacientes\PacientesSecre.designer.vb">
+      <DependentUpon>PacientesSecre.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Pacientes\PacientesSecre.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\EntradaEditTurnos.designer.vb">
+      <DependentUpon>EntradaEditTurnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\EntradaEditTurnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\EntradaTurnos.designer.vb">
+      <DependentUpon>EntradaTurnos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\EntradaTurnos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\TablaTurnos1.designer.vb">
+      <DependentUpon>TablaTurnos1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Secre\Turnos\TablaTurnos1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Admin\Base de Datos\BackUp.resx">
+      <DependentUpon>BackUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Base de Datos\Restore.resx">
+      <DependentUpon>Restore.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Base de Datos\RestoreWarning.resx">
+      <DependentUpon>RestoreWarning.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Genero\AgregarGenero.resx">
+      <DependentUpon>AgregarGenero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Genero\EditGenero.resx">
+      <DependentUpon>EditGenero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\AgregarObraSocial.resx">
+      <DependentUpon>AgregarObraSocial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\CRObraSocialPaciente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRObraSocialPaciente.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\CRObraSocialPersonal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRObraSocialPersonal.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\EditObraSocial.resx">
+      <DependentUpon>EditObraSocial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\ShowROSpaciente.resx">
+      <DependentUpon>ShowROSpaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\ShowROSpersonal.resx">
+      <DependentUpon>ShowROSpersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\TipoPersonal\AgregarTipoPersonal.resx">
+      <DependentUpon>AgregarTipoPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\TipoPersonal\EditTipoPersonal.resx">
+      <DependentUpon>EditTipoPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\AgregarUsuario.resx">
+      <DependentUpon>AgregarUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\CrystalTU\CRTUbaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRTUbaja.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\CrystalTU\CrystalReportTUsuarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportTUsuarios.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\CrystalTU\ShowUserInactivo.resx">
+      <DependentUpon>ShowUserInactivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\EditUsuario.resx">
+      <DependentUpon>EditUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\WinRepTU\InformeTU.rdlc" />
+    <EmbeddedResource Include="Views\Admin\Usuario\WinRepTU\ShowRTiposUsuarios.resx">
+      <DependentUpon>ShowRTiposUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\CrystalTU\ShowRTU.resx">
+      <DependentUpon>ShowRTU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Usuario\TablaUsuario.resx">
+      <DependentUpon>TablaUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\EditProfesionales.resx">
+      <DependentUpon>EditProfesionales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\EntradaProfesionale.resx">
+      <DependentUpon>EntradaProfesionale.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Paciente\FormEditPacientes.resx">
+      <DependentUpon>FormEditPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Paciente\FormMantPacientes.resx">
+      <DependentUpon>FormMantPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Paciente\FormPacientes.resx">
+      <DependentUpon>FormPacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\ObraSocial\FormOS.resx">
+      <DependentUpon>FormOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\FormPrincipalAdmin.resx">
+      <DependentUpon>FormPrincipalAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Genero\TablaGenero.resx">
+      <DependentUpon>TablaGenero.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\TipoPersonal\TipoPersonal.resx">
+      <DependentUpon>TipoPersonal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LogginForm.resx">
+      <DependentUpon>LogginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Admin\Personal\TablaProfesionales.resx">
+      <DependentUpon>TablaProfesionales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\Agenda\FormAgenda.resx">
+      <DependentUpon>FormAgenda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\Agenda\FormAgendaMedica.resx">
+      <DependentUpon>FormAgendaMedica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\Agenda\FormEditAgenda.resx">
+      <DependentUpon>FormEditAgenda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\FormPrincipalMedico.resx">
+      <DependentUpon>FormPrincipalMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\HistClinica\EntradaHC.resx">
+      <DependentUpon>EntradaHC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\HistClinica\ModifHC.resx">
+      <DependentUpon>ModifHC.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\Pacientes\FormPacientesMedico.resx">
+      <DependentUpon>FormPacientesMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\Turnos\TablaTurnoMedico.resx">
+      <DependentUpon>TablaTurnoMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medico\HistClinica\HistoriaClinica.resx">
+      <DependentUpon>HistoriaClinica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Agenda\FormAgendaSecre.resx">
+      <DependentUpon>FormAgendaSecre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\FormPrincipalSecre.resx">
+      <DependentUpon>FormPrincipalSecre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Medicos\FormProfesionalesSecre.resx">
+      <DependentUpon>FormProfesionalesSecre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Pacientes\PacientesSecre.resx">
+      <DependentUpon>PacientesSecre.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Turnos\EntradaEditTurnos.resx">
+      <DependentUpon>EntradaEditTurnos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Turnos\EntradaTurnos.resx">
+      <DependentUpon>EntradaTurnos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Secre\Turnos\TablaTurnos1.resx">
+      <DependentUpon>TablaTurnos1.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model\ModelHospital.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelHospital.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Views\Admin\Usuario\WinRepTU\HospitalDataSet.xsc">
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Views\Admin\Usuario\WinRepTU\HospitalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HospitalDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Views\Admin\Usuario\WinRepTU\HospitalDataSet.xss">
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Model\ModelHospital.edmx.diagram">
+      <DependentUpon>ModelHospital.edmx</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cierreSubForms1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-hospital1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximizar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\normal1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ModelHospital.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelHospital.edmx</DependentUpon>
+      <LastGenOutput>ModelHospital.Context.vb</LastGenOutput>
+    </Content>
+    <Content Include="Model\ModelHospital.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelHospital.edmx</DependentUpon>
+      <LastGenOutput>ModelHospital.vb</LastGenOutput>
+    </Content>
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\GemBox.Pdf.17.0.1224\build\netstandard2.0\GemBox.Pdf.targets" Condition="Exists('..\packages\GemBox.Pdf.17.0.1224\build\netstandard2.0\GemBox.Pdf.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\GemBox.Pdf.17.0.1224\build\netstandard2.0\GemBox.Pdf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\GemBox.Pdf.17.0.1224\build\netstandard2.0\GemBox.Pdf.targets'))" />
+  </Target>
+</Project>
