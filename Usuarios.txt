@@ -1,0 +1,11 @@
+Administrador
+user: azul
+contraseña: 123456
+
+Medico
+user: santi
+contraseña: 123456
+
+Secretario
+user: marce
+contraseña: 123456
